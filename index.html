@@ -2,8 +2,7 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mensagem de Natal</title>
+<title>Merry Christmas 🎄</title>
 <style>
     body {
         margin: 0;
@@ -22,39 +21,29 @@
 
     .box {
         background: rgba(0, 0, 0, 0.55);
-        padding: 40px;
-        border-radius: 16px;
-        width: 90%;
-        max-width: 600px;
+        padding: 25px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 400px;
         text-align: center;
-        backdrop-filter: blur(4px);
-        font-size: 1.6rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 1.5rem;
+        backdrop-filter: blur(3px);
     }
 
     input {
-        padding: 18px;
-        width: 95%;
-        margin-top: 15px;
-        border-radius: 10px;
+        padding: 10px;
+        width: 90%;
+        margin-top: 10px;
+        border-radius: 6px;
         border: none;
-        font-size: 1.4rem;
+        font-size: 15px;
     }
 
     button {
-        margin-top: 20px;
-        padding: 16px 30px;
-        font-size: 1.6rem;
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
         border: none;
-        border-radius: 10px;
+        border-radius: 6px;
         background: #d62828;
         color: white;
         cursor: pointer;
@@ -67,26 +56,33 @@
 
     #clue {
         display: none;
-        margin-top: 25px;
+        margin-top: 20px;
         background: rgba(0,0,0,0.6);
-        padding: 26px;
-        border-radius: 12px;
-        font-size: 1.8rem;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 18px;
     }
+
 </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>🎄 Feliz Natal 🎄</h1>
-    <p>Introduz a password para veres a pista final:</p>
-    <input id="pass" type="text" placeholder="Password" />
-    <$1
+    <div class="box">
+        <h2>🎄 Feliz Natal, meu amor 🎄</h2>
+        <p>Escreve a password para veres a tua última pista…</p>
+
+        <input id="pass" type="text" placeholder="Password..." />
+        <button onclick="checkPass()">Confirmar</button>
 
         <div id="wrong" style="display:none; color:#ffb3b3; margin-top:10px;">
             Hmmm... não é bem isso 😳 tenta outra vez princesa 💕
         </div>
-    <div id="clue" class="clue">Mochila de quem nunca a carrega</div>
-  </div>
+
+        <div id="clue">
+            <h3>✨ A tua pista final ✨</h3>
+            <p><b>Mochila de quem nunca a carrega</b></p>
+        </div>
+    </div>
 
 <script>
 function checkPass() {
@@ -101,8 +97,7 @@ function checkPass() {
     }
 }
 </script>
+
 </body>
 </html>
-
-
 
