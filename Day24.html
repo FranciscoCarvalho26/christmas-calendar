@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Dia 24 — Calendário da Bárbara 💕</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        color: white;
+        margin: 0;
+        padding: 0;
+        background: url("https://i.imgur.com/MVM7uju.png") center/cover no-repeat fixed;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .container {
+        background: rgba(0,0,0,0.6);
+        padding: 30px;
+        width: 80%;
+        max-width: 550px;
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: 0 0 20px black;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px 20px;
+        background: #ff4d4d;
+        color: white;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #ff1a1a;
+    }
+
+    .revealBox {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 15px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .clickReveal {
+        background: rgba(255,255,255,0.2);
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    .clickReveal:hover {
+        background: rgba(255,255,255,0.3);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Dia 24 - Final 🎄❤️</h1>
+
+    <!-- ==========================
+         SECTION 1 — TYPE OF DAY
+         Replace "intro", "clue", or "funny"
+         ========================== -->
+    <script>
+        let dayType = "clue";
+        // "intro" → Day 1 special introduction
+        // "clue"  → Password days (2, 6, 10, 14, 18, 22)
+        // "funny" → All other days (click to reveal)
+    </script>
+
+    <!-- ==========================
+         INTRO DAY (DAY 1)
+         ========================== -->
+    <div id="introDay" class="hidden">
+        <p style="font-size:1.3rem;">
+            🎁 Bem-vinda ao <b>Calendário de Natal da Bárbara</b>!  
+            Durante 24 dias vais ter surpresas, piadas, momentos românticos  
+            e alguns desafios feitos só para ti ❤️  
+        </p>
+
+        <p style="font-size:1.3rem;">
+            Carrega no dia seguinte para começares a aventura ✨
+        </p>
+    </div>
+
+    <!-- ==========================
+         CLUE / PASSWORD DAYS
+         ========================== -->
+    <div id="clueDay" class="hidden">
+        <p><b>A localização da tua prenda está por trás desta password!</b></p>
+        <p style="font-size:1.2rem; margin-bottom:20px;">
+            Queres saber a password? <span onclick="toggleClue()" class="clickReveal">Clica aqui!</span>
+        </p>
+
+        <div id="clueBox" class="hidden revealBox">
+            <!-- Put the clue / riddle here -->
+            <p>A password segue este código:</p>
+            <p><b>(f)(d)(k)(k)(e)(h)(j)(g)(k)(c)(a)(b)(f)(i)(a)(h)(l)(i)(l)(e)</b></p>
+
+            <div style="text-align:left; margin-top:10px; line-height:1.2;">
+                <p><b>a.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>6</u></p>
+                <p><b>b.</b> 6ª letra do nome da família presente</p>
+                <p><b>c.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>14</u></p>
+                <p><b>d.</b> 2ª letra do nome do melhor sportinguista</p>
+                <p><b>e.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>18</u></p>
+                <p><b>f.</b> 1ª letra do nome da mais maquilhada</p>
+                <p><b>g.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>10</u></p>
+                <p><b>h.</b> A rich man needs it, a poor man has it, if we eat it, we die, and when we die, we bring it with us. What is it?</p>
+                <p><b>i.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>2</u></p>
+                <p><b>j.</b> 1ª letra do nome da mulher que mais amas neste mundo</p>
+                <p><b>k.</b> Letra em que o seu número no alfabeto é o número importante do dia <u>22</u></p>
+                <p><b>l.</b> 1ª letra do nome de família do homem que te criou</p>
+                <p></p>
+                <p><b>Dica:</b> mete tudo em CAPS</p>
+            </div>
+        </div>
+
+        <p style="margin-top:25px;">Introduz a password:</p>
+        <input type="text" id="pass" placeholder="Password">
+        <button onclick="checkPass()">Confirmar</button>
+
+        <div id="wrong" class="hidden" style="color:#ffb3b3; margin-top:10px;">
+            Hmmm... não é isso, tenta outra vez princesa 😉
+        </div>
+
+        <div id="correctBox" class="hidden revealBox">
+            <!-- SUCCESS MESSAGE + CONTENT -->
+            <p><b>Let's goo!! Acertaste 🎉</b></p>
+            <p>A tua prenda está <u>na mochila de quem nunca a carrega</u>, espero que gostes!</p>
+        </div>
+    </div>
+
+    <!-- ==========================
+         FUNNY / ROMANTIC DAYS
+         ========================== -->
+    <div id="funnyDay" class="hidden">
+        <div onclick="showFunny()" class="clickReveal">
+            Clica aqui para abrir a surpresa 😏❤️
+        </div>
+
+        <div id="funnyContent" class="hidden revealBox">
+            <!-- Put your funny/romantic content here -->
+            <p>Exemplo: “Sabias que hoje oficialmente és a namorada mais linda do calendário? 🥰🎄”</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // SHOW SECTIONS BASED ON DAY TYPE
+    window.onload = () => {
+        if (dayType === "intro") document.getElementById("introDay").classList.remove("hidden");
+        if (dayType === "clue") document.getElementById("clueDay").classList.remove("hidden");
+        if (dayType === "funny") document.getElementById("funnyDay").classList.remove("hidden");
+    };
+
+    function toggleClue() {
+        let box = document.getElementById("clueBox");
+        box.classList.toggle("hidden");
+    }
+
+    // PASSWORD CHECK (for clue days)
+    function checkPass() {
+        let p = document.getElementById("pass").value.trim().toUpperCase();
+        
+        let correct = "MERRY CHRISTMAS BABY";  // <<< CHANGE THIS PASSWORD PER DAY
+
+        if (p === correct) {
+            document.getElementById("correctBox").classList.remove("hidden");
+            document.getElementById("wrong").classList.add("hidden");
+        } else {
+            document.getElementById("wrong").classList.remove("hidden");
+        }
+    }
+
+    // FUNNY DAY CLICK-REVEAL
+    function showFunny() {
+        document.getElementById("funnyContent").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>
